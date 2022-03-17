@@ -1,6 +1,6 @@
 using genie.cast;
 
-namespace asteroid.cast {
+namespace hero.cast {
     class StartGameButton : Actor
     {
 

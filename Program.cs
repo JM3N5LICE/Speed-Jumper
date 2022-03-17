@@ -7,10 +7,10 @@ using genie.test;
 using genie.services;
 using genie.services.raylib;
 
-using asteroid.script;
-using asteroid.cast;
+using hero.script;
+using hero.cast;
 
-namespace asteroid
+namespace hero
 {
     public static class Program
     {
@@ -32,11 +32,11 @@ namespace asteroid
         public static void Main(string[] args)
         {
             // A few game constants
-            (int, int) W_SIZE = (500, 700);
+            (int, int) W_SIZE = (1000, 800);
             (int, int) START_POSITION = (500, 700);
             int SHIP_WIDTH = 40;
             int SHIP_LENGTH = 50;
-            string SCREEN_TITLE = "Asteroids";
+            string SCREEN_TITLE = "Speed Jumper";
             int FPS = 120;
             
             // Initiate all services
@@ -53,7 +53,7 @@ namespace asteroid
             Cast cast = new Cast();
 
             // Create the mothership
-            Mothership mothership = new Mothership("./asteroid/assets/mother_ship.png", W_SIZE.Item1, (int) (W_SIZE.Item1/ 5.7), //path, width, height
+            Mothership mothership = new Mothership("./hero/assets/mother_ship.png", W_SIZE.Item1, (int) (W_SIZE.Item1/ 5.7), //path, width, height
                                                     W_SIZE.Item1/2, W_SIZE.Item2 - (int)(W_SIZE.Item1/ 5.7)/2,   // x and y
                                                     0, 0,  // vx and vy
                                                     0, 0,  // rotation and rotational velocity
@@ -65,13 +65,13 @@ namespace asteroid
 
             // Scale the background to have the same dimensions as the Window,
             // then position it at the center of the screen
-            Background backgroundImage = new Background("./asteroid/assets/space.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
+            Background backgroundImage = new Background("./hero/assets/space.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
 
             // Create the Player Score
             PlayerScore score = new PlayerScore(path:"", score:0);
 
             // Create the Start Button
-            StartGameButton startGameButton = new StartGameButton("./asteroid/assets/others/start_button.png", 305, 113, W_SIZE.Item1/2, W_SIZE.Item2/2);
+            StartGameButton startGameButton = new StartGameButton("./hero/assets/others/start_button.png", 305, 113, W_SIZE.Item1/2, W_SIZE.Item2/2);
 
             // Give actors to cast
             cast.AddActor("background_image", backgroundImage);
@@ -87,31 +87,31 @@ namespace asteroid
             script.AddAction("input", new HandleQuitAction(1,screenService));
             
             // Add actions that must be added to the script when the game starts:
-            Dictionary<string, List<genie.script.Action>> startGameActions = new Dictionary<string, List<genie.script.Action>>();
-            startGameActions["input"] = new List<genie.script.Action>();
-            startGameActions["update"] = new List<genie.script.Action>();
-            startGameActions["output"] = new List<genie.script.Action>();
-            startGameActions["input"].Add(new HandleShipMovementAction(2, keyboardService));
-            startGameActions["input"].Add(new HandleShootingAction(2, (float)0.15, (0, -10), keyboardService, audioservice));
-            startGameActions["update"].Add(new SpawnAsteroidsAction(1, W_SIZE, (float)1.5));
+            // Dictionary<string, List<genie.script.Action>> startGameActions = new Dictionary<string, List<genie.script.Action>>();
+            // startGameActions["input"] = new List<genie.script.Action>();
+            // startGameActions["update"] = new List<genie.script.Action>();
+            // startGameActions["output"] = new List<genie.script.Action>();
+            // startGameActions["input"].Add(new HandleShipMovementAction(2, keyboardService));
+            // startGameActions["input"].Add(new HandleShootingAction(2, (float)0.15, (0, -10), keyboardService, audioservice));
+            // startGameActions["update"].Add(new SpawnAsteroidsAction(1, W_SIZE, (float)1.5));
 
-            // Add all input actions
-            script.AddAction("input", new HandleStartGameAction(2, mouseService, physicsService, startGameActions));
+            // // Add all input actions
+            // script.AddAction("input", new HandleStartGameAction(2, mouseService, physicsService, startGameActions));
 
-            // Add all update actions
-            script.AddAction("update", new MoveActorsAction(1, physicsService));
-            script.AddAction("update", new HandleOffscreenAction(1, W_SIZE));
-            script.AddAction("update", new HandleShipAboveMotherShipAction(1, W_SIZE));
-            script.AddAction("update", new HandleShipAsteroidsCollisionAction(1, physicsService, audioservice));
-            script.AddAction("update", new HandleMothershipAsteroidsCollisionAction(1, physicsService, audioservice));
-            script.AddAction("update", new HandleBulletsAsteroidsCollisionAction(1, physicsService, audioservice));
+            // // Add all update actions
+            // script.AddAction("update", new MoveActorsAction(1, physicsService));
+            // script.AddAction("update", new HandleOffscreenAction(1, W_SIZE));
+            // script.AddAction("update", new HandleShipAboveMotherShipAction(1, W_SIZE));
+            // script.AddAction("update", new HandleShipAsteroidsCollisionAction(1, physicsService, audioservice));
+            // script.AddAction("update", new HandleMothershipAsteroidsCollisionAction(1, physicsService, audioservice));
+            // script.AddAction("update", new HandleBulletsAsteroidsCollisionAction(1, physicsService, audioservice));
 
-            // Add all output actions
-            script.AddAction("output", new PlayBackgroundMusicAction(1, "asteroid/assets/sound/background_music.wav", audioservice));
-            script.AddAction("output", new DrawActorsAction(1, screenService));
-            script.AddAction("output", new DrawHealthBarAction(1, screenService));
-            script.AddAction("output", new DrawScoreAction(1, screenService));
-            script.AddAction("output", new UpdateScreenAction(2, screenService));
+            // // Add all output actions
+            // script.AddAction("output", new PlayBackgroundMusicAction(1, "asteroid/assets/sound/background_music.wav", audioservice));
+            // script.AddAction("output", new DrawActorsAction(1, screenService));
+            // script.AddAction("output", new DrawHealthBarAction(1, screenService));
+            // script.AddAction("output", new DrawScoreAction(1, screenService));
+            // script.AddAction("output", new UpdateScreenAction(2, screenService));
 
             // Yo, director, do your thing!
             director.DirectScene(cast, script);

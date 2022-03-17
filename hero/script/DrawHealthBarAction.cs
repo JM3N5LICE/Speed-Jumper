@@ -4,9 +4,9 @@ using genie.script;
 using genie.services;
 using genie.services.raylib;
 
-using asteroid.cast;
+using hero.cast;
 
-namespace asteroid.script {
+namespace hero.script {
     class DrawHealthBarAction : genie.script.Action {
         
         private RaylibScreenService screenService;
@@ -50,8 +50,8 @@ namespace asteroid.script {
 
         public override void execute(Cast cast, Script script, Clock clock, Callback callback) {
             
-            // Draw Healthbars for all asteroids
-            foreach (HasLifeActor actor in cast.GetActors("asteroids")) {                
+            // Draw Healthbars for all heros
+            foreach (HasLifeActor actor in cast.GetActors("heros")) {                
                 this.DrawHealthBar(actor);
             }
 

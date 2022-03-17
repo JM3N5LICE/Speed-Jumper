@@ -4,9 +4,9 @@ using genie.script;
 using genie.services;
 using genie.services.raylib;
 
-using asteroid.cast;
+using hero.cast;
 
-namespace asteroid.script {
+namespace hero.script {
     class DrawActorsAction : genie.script.Action {
         
         private RaylibScreenService screenService;

@@ -1,0 +1,63 @@
+Speed Jumper
+Game specifications:
+Primary
+1.	Platform base
+2.	One long level
+3.	Camera adjusts on a grid
+4.	Always moving 
+5.	Cannot go backwards
+6.	Obstacles to jump over
+Secondary
+1.	Powerups
+a.	Velocity
+b.	gravity
+2.	Lives
+3.	Enemies 
+4.	Double Jump
+
+---Brother manley outline example---
+
+Stages of game development
+-Alpha 
+--rudimentary game play
+---key binding 
+---physics
+---gravity
+---velocity
+---invisible actor to track movement of screen relative to player
+--no objects yet, just a moving screen with the main player 
+
+-Beta
+--enrich gameplay
+---obstacles to jump over 
+---collisions 
+---lives 
+---countdown timer to game over 
+--blue and red rectangles (still no images)
+---add platorms to jump on 
+
+-Release candidate one
+--add heads up display 
+--add images & sounds 
+
+-stable release
+
+
+
+Alpha Classes:
+•	Actor
+o	Hero
+o	Platform
+o	Velocity
+o	gravity
+•	Action Interface
+o	Movement
+o	Jumping
+o	Keyboard Services
+o	Video Services
+o	Check Input Action
+	If right is pressed, then change velocity of everything but character to move left
+o	Move Actors Action
+	Get list of everything that can move (not character) from cast and update velocity
+o	Load out of session action?
+

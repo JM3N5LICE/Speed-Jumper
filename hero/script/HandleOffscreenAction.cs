@@ -4,9 +4,9 @@ using genie.script;
 using genie.services;
 using genie.services.raylib;
 
-using asteroid.cast;
+using hero.cast;
 
-namespace asteroid.script
+namespace hero.script
 {
     class HandleOffscreenAction : genie.script.Action
     {
@@ -40,11 +40,11 @@ namespace asteroid.script
                 }
             }
 
-            // If an asteroid falls out of the game window, just remove it.
-            foreach (Actor actor in cast.GetActors("asteroids")) {
+            // If an hero falls out of the game window, just remove it.
+            foreach (Actor actor in cast.GetActors("heros")) {
                 if (actor.GetX() > this.windowSize.x || actor.GetX() < 0 ||
                     actor.GetY() > this.windowSize.y || actor.GetY() < 0) {
-                        cast.RemoveActor("asteroids", actor);
+                        cast.RemoveActor("heros", actor);
                 }
             }
         }

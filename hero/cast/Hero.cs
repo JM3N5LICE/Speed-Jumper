@@ -1,10 +1,10 @@
 
-namespace asteroid.cast {
-    class Asteroid : HasLifeActor {
+namespace hero.cast {
+    class Hero : HasLifeActor {
 
         private int points;
 
-        public Asteroid(string path, int width, int height,
+        public Hero(string path, int width, int height,
                         float x = 0, float y = 0,
                         float vx = 0, float vy = 0,
                         float rotation = 0, float rotationVel = 0,

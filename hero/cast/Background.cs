@@ -1,5 +1,5 @@
 
-namespace asteroid.cast {
+namespace hero.cast {
     class Background : HasLifeActor {
 
         private int points;

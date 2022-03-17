@@ -1,5 +1,5 @@
 
-namespace asteroid.cast {
+namespace hero.cast {
     class Mothership : HasLifeActor {
 
         private int points;
