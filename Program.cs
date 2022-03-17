@@ -32,6 +32,7 @@ namespace hero
         public static void Main(string[] args)
         {
             // A few game constants
+            (int, int) L_SIZE = (8000, 2000);
             (int, int) W_SIZE = (1000, 800);
             (int, int) START_POSITION = (500, 700);
             int SHIP_WIDTH = 40;
@@ -53,15 +54,12 @@ namespace hero
             Cast cast = new Cast();
 
             // Create the mothership
-            Mothership mothership = new Mothership("./hero/assets/mother_ship.png", W_SIZE.Item1, (int) (W_SIZE.Item1/ 5.7), //path, width, height
-                                                    W_SIZE.Item1/2, W_SIZE.Item2 - (int)(W_SIZE.Item1/ 5.7)/2,   // x and y
-                                                    0, 0,  // vx and vy
-                                                    0, 0,  // rotation and rotational velocity
-                                                    (int)(W_SIZE.Item1 / 5.7)/2 - 10, 20,  //healthBarYOffset and healthBarHeight
-                                                    50, true); // maxHp and showTextHealth
+            Ground ground = new Ground("", L_SIZE.Item1,(100), //path, width, height
+                                                    L_SIZE.Item1/2, L_SIZE.Item2,   // x and y
+                                                    0, 0);  // vx and vy
             
             // Create the player
-            Ship ship = new Ship("./asteroid/assets/spaceship/spaceship_yellow.png", 70, 50, W_SIZE.Item1/2, mothership.GetTopLeft().Item2 - 40, 0, 0, 180);
+            Hero hero = new Hero("./asteroid/assets/spaceship/spaceship_yellow.png", 70, 50, W_SIZE.Item1/2, .GetTopLeft().Item2 - 40, 0, 0, 180);
 
             // Scale the background to have the same dimensions as the Window,
             // then position it at the center of the screen
