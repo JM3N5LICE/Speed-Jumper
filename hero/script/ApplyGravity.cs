@@ -17,7 +17,7 @@ namespace hero.script {
         public override void execute(Cast cast, Script script, Clock clock, Callback callback) {
             this.hero = cast.GetFirstActor("hero");
             float vy = this.hero.GetVy();
-            this.hero.SetVy(vy+.5);
+            this.hero.SetVy(vy+1);
             // make the hero stop on the platforms and ground 
             
         }
