@@ -3,7 +3,6 @@ using genie.cast;
 using genie.script;
 using genie.services;
 using genie.services.raylib;
-
 using hero.cast;
 
 namespace hero.script {
