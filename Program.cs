@@ -80,16 +80,18 @@ namespace hero
             Script script = new Script();
 
             // Add all input actions
-            script.AddAction("input", new HandleQuitAction(1,screenService));
-            script.AddAction("input", new HandleHeroMovementAction(2, keyboardService));
+            script.AddAction("input", new HandleQuitAction(2,screenService));
+            script.AddAction("input", new HandleHeroMovementAction(3, keyboardService));
 
             // // Add all update actions
-            script.AddAction("update", new MoveActorsAction(1, physicsService));
+            script.AddAction("update", new ApplyGravity(1));
+            script.AddAction("update", new MoveActorsAction(2, physicsService));
+            
 
 
             // // Add all output actions
-            script.AddAction("output", new DrawActorsAction(1, screenService));
-            script.AddAction("output", new UpdateScreenAction(2, screenService));
+            script.AddAction("output", new DrawActorsAction(2, screenService));
+            script.AddAction("output", new UpdateScreenAction(3, screenService));
 
             // Yo, director, do your thing!
             director.DirectScene(cast, script);
