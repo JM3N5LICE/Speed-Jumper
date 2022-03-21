@@ -11,6 +11,11 @@ namespace hero.script
 {
     class HandleGroundCollisions : genie.script.Action
     {
+        // creates member variables
+        private genie.cast.Actor? hero;
+        private genie.cast.Actor? ground;
+        private RaylibPhysicsService physicsService;
+        
         public HandleGroundCollisions(int priority) : base(priority)
         {
             
@@ -18,7 +23,12 @@ namespace hero.script
 
         public override void execute(Cast cast, Script script, Clock clock, Callback callback)
         {
-            // throw new NotImplementedException();
+            // How do you create a boolean that would set the apply gravity to be false here? --Jeremy Doung
+            if (this.physicsService.CheckCollision(this.hero, ground))
+            {
+                this.hero = cast.GetFirstActor("hero");
+                this.hero.SetVy(0);
+            }
         }
     }
 }
