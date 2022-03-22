@@ -61,6 +61,11 @@ namespace hero
             // Create the player
             Hero hero = new Hero("", 50, 70, W_SIZE.Item1/2, W_SIZE.Item2/2, 0, 0, 100);
 
+            Platform platform1 = new Platform("", 100, 50, 300, 500, 0, 0);
+            // Create the platform
+            // Platform platform = new InstantiatePlatform();
+
+
             // Scale the background to have the same dimensions as the Window,
             // then position it at the center of the screen
             // Background backgroundImage = new Background("./hero/assets/space.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
@@ -76,6 +81,7 @@ namespace hero
             cast.AddActor("hero", hero);
             // cast.AddActor("start_button", startGameButton);
             cast.AddActor("ground", ground);
+            cast.AddActor("platform", platform1);
             // cast.AddActor("score", score);
 
             // Create the script
