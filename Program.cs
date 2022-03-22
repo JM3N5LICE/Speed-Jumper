@@ -32,7 +32,9 @@ namespace hero
         public static void Main(string[] args)
         {
             // A few game constants
+            // Level size here 
             (int, int) L_SIZE = (8000, 2000);
+            // Window Size here 
             (int, int) W_SIZE = (1000, 800);
             // (int, int) START_POSITION = (4000, 800);
             string SCREEN_TITLE = "Speed Jumper";
