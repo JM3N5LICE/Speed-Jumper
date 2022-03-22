@@ -23,16 +23,17 @@ namespace hero.script
 
         public override void execute(Cast cast, Script script, Clock clock, Callback callback)
         {
+            float vy = this.hero.GetVy();
             // How do you create a boolean that would set the apply gravity to be false here? --Jeremy Doung
             if (this.physicsService.CheckCollision(this.hero, ground))
             {
-                ApplyGravity.gravity = true;
+                // ApplyGravity.gravity = true;
                 // this.hero = cast.GetFirstActor("hero");
                 // this.hero.SetVy(0);
             }
             else
             {
-                ApplyGravity.gravity = false;
+                // ApplyGravity.gravity = false;
             }
         }
     }
