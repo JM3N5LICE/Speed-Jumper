@@ -53,7 +53,7 @@ namespace hero
             // Create the cast
             Cast cast = new Cast();
 
-            // Create the mothership
+            // Create the ground
             Ground ground = new Ground("", L_SIZE.Item1,(100), //path, width, height
                                                     L_SIZE.Item1/2, W_SIZE.Item2,   // x and y
                                                     0, 0);  // vx and vy
@@ -94,9 +94,7 @@ namespace hero
             // // Add all update actions
             script.AddAction("update", new ApplyGravity(1));
             script.AddAction("update", new MoveActorsAction(2, physicsService));
-            // script.AddAction("update", new HandleGroundCollisions(2));
-            
-
+            script.AddAction("update", new HandleGroundCollisions(2, physicsService));
 
             // // Add all output actions
             script.AddAction("output", new DrawActorsAction(2, screenService));
