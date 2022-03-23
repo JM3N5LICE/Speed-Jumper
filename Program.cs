@@ -95,6 +95,7 @@ namespace hero
             script.AddAction("update", new ApplyGravity(1));
             script.AddAction("update", new MoveActorsAction(2, physicsService));
             script.AddAction("update", new HandleGroundCollisions(2, physicsService));
+            script.AddAction("update", new HandleHeroPlatformCollision(2, physicsService));
 
             // // Add all output actions
             script.AddAction("output", new DrawActorsAction(2, screenService));
