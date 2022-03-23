@@ -53,7 +53,7 @@ namespace hero.script
                 else
                 {
                     ApplyGravity.gravity = true;
-                    Console.WriteLine("gravity fails");
+                    Console.WriteLine("gravity falls");
                 }
             }
         }

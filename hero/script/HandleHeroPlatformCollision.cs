@@ -26,34 +26,36 @@ namespace hero.script
 
         public override void execute(Cast cast, Script script, Clock clock, Callback callback)
         {
-            if(cast.GetFirstActor("platform")!=null)
+            if(cast.GetActors("platform")!=null)
             {
             // Console.WriteLine("Was this called?");
-            platform = cast.GetFirstActor("platform");
-            }
-            if(cast.GetFirstActor("hero")!=null)
+            foreach (Actor actor in cast.GetActors("platforms"));
             {
-            // Console.WriteLine("Was this called?");
-            hero = cast.GetFirstActor("hero");
-            }
-            if(hero != null && platform != null)
-            {
-                float vy = hero.GetVy();
+                if(cast.GetFirstActor("hero")!=null)
+                {
                 // Console.WriteLine("Was this called?");
-                // How do you create a boolean that would set the apply gravity to be false here? --Jeremy Doung
-                // Actor? collideGround = this.physicsService.CheckCollision(this.hero, this.ground);
-                if (this.physicsService.CheckCollision(this.hero, this.platform))
-                {
-                    ApplyGravity.gravity = false;
-                    Console.WriteLine("gravity worked");
-                    this.hero = cast.GetFirstActor("hero");
-                    this.hero.SetVy(0);
+                hero = cast.GetFirstActor("hero");
                 }
-                else
+                if(hero != null && platform != null)
                 {
-                    ApplyGravity.gravity = true;
-                    Console.WriteLine("gravity fails");
-                }
+                    float vy = hero.GetVy();
+                    // Console.WriteLine("Was this called?");
+                    // How do you create a boolean that would set the apply gravity to be false here? --Jeremy Doung
+                    // Actor? collideGround = this.physicsService.CheckCollision(this.hero, this.ground);
+                    if (this.physicsService.CheckCollision(this.hero, platform))
+                    {
+                        ApplyGravity.gravity = false;
+                        Console.WriteLine("gravity worked");
+                        this.hero = cast.GetFirstActor("hero");
+                        this.hero.SetVy(0);
+                    }
+                    else
+                    {
+                        ApplyGravity.gravity = true;
+                        Console.WriteLine("gravity falls");
+                    }
+                }    
+            }
             }
         }
     }
