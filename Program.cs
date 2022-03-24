@@ -61,8 +61,7 @@ namespace hero
             // Create the player
             Hero hero = new Hero("", 50, 70, W_SIZE.Item1/2, W_SIZE.Item2/2, 0, 0, 100);
 
-            Platform platform1 = new Platform("", 100, 50, 300, 500, 0, 0);
-            Platform platform2 = new Platform("", 100, 50, 500, 600, 0, 0);
+
             // Create the platform
             // Platform platform = new InstantiatePlatform();
 
@@ -82,8 +81,7 @@ namespace hero
             cast.AddActor("hero", hero);
             // cast.AddActor("start_button", startGameButton);
             cast.AddActor("ground", ground);
-            cast.AddActor("platform", platform1);
-            cast.AddActor("platform", platform2);
+
             // cast.AddActor("score", score);
 
             // Create the script
@@ -94,10 +92,12 @@ namespace hero
             script.AddAction("input", new HandleHeroMovementAction(3, keyboardService));
 
             // // Add all update actions
+            script.AddAction("update", new InstantiatePlatform(1));
             script.AddAction("update", new ApplyGravity(1));
             script.AddAction("update", new MoveActorsAction(2, physicsService));
             script.AddAction("update", new HandleGroundCollisions(1, physicsService));
             script.AddAction("update", new HandleHeroPlatformCollision(2, physicsService));
+            
 
             // // Add all output actions
             script.AddAction("output", new DrawActorsAction(2, screenService));

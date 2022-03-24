@@ -43,7 +43,7 @@ namespace hero.script {
                         {
                             actor.SetVx(this.heroMovementVel);
                         }
-                        
+
 
                     }
                 }
@@ -55,23 +55,28 @@ namespace hero.script {
                         {
                             actor.SetVx(-this.heroMovementVel);
                         }
-                        
-
                     }
                 }
+                
                 if (keysState[Keys.SPACE]) {
-                    // this.hero.SetVy(-this.heroMovementVel);
+                    this.hero.SetVy(-this.heroMovementVel);
                 }
 
                 // If none of the LEFT or RIGHT keys are down, x-velocity is 0
                 if (!(keysState[Keys.LEFT] || keysState[Keys.RIGHT])) {
-                    this.hero.SetVx(0);
+                    foreach (Actor actor in cast.GetAllActors())
+                    {
+                        if (actor != this.hero)
+                        {
+                            actor.SetVx(0);
+                        }
+                    }
                 }
 
                 // If none of the UP or DOWN keys are down, y-velocity is 0
-                // if (!(keysState[Keys.SPACE])) {
-                //     this.hero.SetVy(0);
-                // }
+                if (!(keysState[Keys.SPACE])) {
+                    this.hero.SetVy(0);
+                }
             }
         }
     }

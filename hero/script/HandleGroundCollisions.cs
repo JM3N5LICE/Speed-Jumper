@@ -41,19 +41,22 @@ namespace hero.script
             {
                 float vy = hero.GetVy();
                 // Console.WriteLine("Was this called?");
-                // How do you create a boolean that would set the apply gravity to be false here? --Jeremy Doung
                 // Actor? collideGround = this.physicsService.CheckCollision(this.hero, this.ground);
                 if (this.physicsService.CheckCollision(this.hero, this.ground))
                 {
-                    ApplyGravity.gravity = false;
-                    Console.WriteLine("gravity worked");
-                    this.hero = cast.GetFirstActor("hero");
+                    // ApplyGravity.gravity = false;
+                    // Console.WriteLine("gravity worked");
+                    // this.hero = cast.GetFirstActor("hero");
                     this.hero.SetVy(0);
+                    (float, float) upLeftGround = ground.GetTopLeft();
+                    int halfHero = (this.hero.GetHeight())/2;
+                    this.hero.SetY((upLeftGround.Item2)-halfHero);
+                    
                 }
                 else
                 {
-                    ApplyGravity.gravity = true;
-                    Console.WriteLine("gravity falls");
+                    // ApplyGravity.gravity = true;
+                    // Console.WriteLine("gravity falls");
                 }
             }
         }

@@ -12,31 +12,24 @@ namespace hero.script
     {
         // creates member variables
         private genie.cast.Actor? hero;
-        private genie.cast.Actor? platform;
         RaylibPhysicsService? physicsService;
         
         public HandleHeroPlatformCollision(int priority, RaylibPhysicsService physicsService) : base(priority)
         {
             this.hero = null;
             this.physicsService = physicsService;
-            this.platform = null;
         }
 
         // internal RaylibPhysicsService? physicsService { get => physicsService; set => physicsService = value; }
 
         public override void execute(Cast cast, Script script, Clock clock, Callback callback)
         {
-            if(cast.GetActors("platform")!=null)
-            {
+            hero = cast.GetFirstActor("hero");
+
             // Console.WriteLine("Was this called?");
-            foreach (Actor actor in cast.GetActors("platforms"));
+            foreach (Actor platform in cast.GetActors("platform"))
             {
-                if(cast.GetFirstActor("hero")!=null)
-                {
-                // Console.WriteLine("Was this called?");
-                hero = cast.GetFirstActor("hero");
-                }
-                if(hero != null && platform != null)
+                if(hero != null)
                 {
                     float vy = hero.GetVy();
                     // Console.WriteLine("Was this called?");
@@ -44,19 +37,22 @@ namespace hero.script
                     // Actor? collideGround = this.physicsService.CheckCollision(this.hero, this.ground);
                     if (this.physicsService.CheckCollision(this.hero, platform))
                     {
-                        ApplyGravity.gravity = false;
-                        Console.WriteLine("gravity worked");
-                        this.hero = cast.GetFirstActor("hero");
+                        // ApplyGravity.gravity = false;
+                        // Console.WriteLine("gravity worked");
+                        // this.hero = cast.GetFirstActor("hero");
                         this.hero.SetVy(0);
+                        (float, float) upLeftPlatform = platform.GetTopLeft();
+                        int halfHero = (this.hero.GetHeight())/2;
+                        this.hero.SetY((upLeftPlatform.Item2)-halfHero);
                     }
                     else
                     {
-                        ApplyGravity.gravity = true;
-                        Console.WriteLine("gravity falls");
+                        // ApplyGravity.gravity = true;
+                        // Console.WriteLine("gravity falls");
                     }
                 }    
             }
-            }
+        
         }
     }
 }

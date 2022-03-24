@@ -20,7 +20,7 @@ namespace hero.script {
             {
                 this.hero = cast.GetFirstActor("hero");
                 float vy = this.hero.GetVy();
-                this.hero.SetVy(vy+1);
+                this.hero.SetVy(vy+2);
             }
             // make the hero stop on the platforms and ground 
             
