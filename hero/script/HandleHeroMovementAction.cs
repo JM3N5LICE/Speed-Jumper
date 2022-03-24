@@ -59,7 +59,8 @@ namespace hero.script {
                 }
                 
                 if (keysState[Keys.SPACE]) {
-                    this.hero.SetVy(-this.heroMovementVel);
+                    this.hero.SetVy(-6);
+                    //-this.heroMovementVel
                 }
 
                 // If none of the LEFT or RIGHT keys are down, x-velocity is 0
