@@ -42,6 +42,7 @@ namespace genie.cast {
         private float rotationVel;
 
         private bool flipped;
+        private bool onGround = false;
 
 
         // Public methods:
@@ -190,6 +191,14 @@ namespace genie.cast {
 
         public void Rotate() {
             this.rotation += this.rotationVel;
+        }
+        public void SetGround(bool ground)
+        {
+            this.onGround = ground;
+        }
+        public bool getGround()
+        {
+            return this.onGround;
         }
     }
 }
