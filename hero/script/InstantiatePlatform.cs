@@ -29,7 +29,6 @@ namespace hero.script {
             cast.AddActor("platform", platform4);
             cast.AddActor("platform", platform5);
             script.RemoveAction("update", this);
-            Console.WriteLine("problem");
         }
     }
 }

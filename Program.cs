@@ -60,6 +60,7 @@ namespace hero
             
             // Create the player
             Hero hero = new Hero("", 50, 70, W_SIZE.Item1/2, W_SIZE.Item2/2, 0, 0, 100);
+            Endpoint endpoint = new Endpoint("", 50, 70, 3000, 700, 0, 0); 
 
 
             // Create the platform
@@ -81,6 +82,7 @@ namespace hero
             cast.AddActor("hero", hero);
             // cast.AddActor("start_button", startGameButton);
             cast.AddActor("ground", ground);
+            cast.AddActor("endpoint", endpoint);
 
             // cast.AddActor("score", score);
 
@@ -97,6 +99,7 @@ namespace hero
             script.AddAction("update", new MoveActorsAction(2, physicsService));
             script.AddAction("update", new HandleGroundCollisions(1, physicsService));
             script.AddAction("update", new HandleHeroPlatformCollision(2, physicsService));
+            script.AddAction("update", new HandleHeroEndpointCollision(2, physicsService));
             
 
             // // Add all output actions
