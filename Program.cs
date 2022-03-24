@@ -80,7 +80,7 @@ namespace hero
             // cast.AddActor("background_image", backgroundImage);
             cast.AddActor("hero", hero);
             // cast.AddActor("start_button", startGameButton);
-            cast.AddActor("ground", ground);
+            cast.AddActor("platform", ground);
 
             // cast.AddActor("score", score);
 
@@ -96,7 +96,7 @@ namespace hero
             script.AddAction("update", new ApplyGravity(1));
             script.AddAction("update", new MoveActorsAction(2, physicsService));
             script.AddAction("update", new HandleGroundCollisions(1, physicsService));
-            script.AddAction("update", new HandleHeroPlatformCollision(2, physicsService));
+            // script.AddAction("update", new HandleHeroPlatformCollision(2, physicsService));
             
 
             // // Add all output actions

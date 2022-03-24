@@ -57,8 +57,9 @@ namespace hero.script {
                     }
                 }
                 // Hero jumping
-                if (keysState[Keys.SPACE] & hero.getGround()) {
-                    this.hero.SetVy((-this.heroMovementVel)-5);
+                if (keysState[Keys.SPACE] && hero.getGround()) {
+                    this.hero.SetVy(-50);
+                    this.hero.SetGround(false);
                     
                 }
 
