@@ -44,7 +44,6 @@ namespace hero.script {
                             actor.SetVx(this.heroMovementVel);
                         }
 
-
                     }
                 }
                 if (keysState[Keys.RIGHT]) {
@@ -57,10 +56,10 @@ namespace hero.script {
                         }
                     }
                 }
-                
+                // Hero jumping
                 if (keysState[Keys.SPACE]) {
-                    this.hero.SetVy(-6);
-                    //-this.heroMovementVel
+                    this.hero.SetVy((-this.heroMovementVel)-5);
+                    
                 }
 
                 // If none of the LEFT or RIGHT keys are down, x-velocity is 0
