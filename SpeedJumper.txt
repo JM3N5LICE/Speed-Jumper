@@ -61,3 +61,18 @@ o	Move Actors Action
 	Get list of everything that can move (not character) from cast and update velocity
 o	Load out of session action?
 
+
+3/23/22
+assignments 
+
+Kaden - Platfroms throughout the game   
+        - Platfors at the end of the game that staircase away to a potential finish
+        - Get sound classes pulled in 
+        -look for potential images to pull in
+
+Justyn - finish platorm collisions 
+
+Jeff - finish ground collisions 
+
+Justyn & Jeff 
+    - work on jumping action
