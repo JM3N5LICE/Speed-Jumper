@@ -8,6 +8,7 @@ namespace hero.cast {
         private int healthBarYOffset;
         private int healthBarHeight;
         private bool showTextHealth;
+        
 
         public HasLifeActor(string path, int width, int height,
                         float x = 0, float y = 0,
@@ -17,7 +18,8 @@ namespace hero.cast {
                         int healthBarYOffset = 0,
                         int healthBarHeight = 5,
                         int maxHP = 0,
-                        bool showTextHealth = false) :
+                        bool showTextHealth = false)
+                        :
         base(path, width, height, x, y, vx, vy, rotation, rotationVel)
         {
             this.maxHP = maxHP;

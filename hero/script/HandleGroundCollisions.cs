@@ -27,36 +27,54 @@ namespace hero.script
 
         public override void execute(Cast cast, Script script, Clock clock, Callback callback)
         {
-            if(cast.GetFirstActor("ground")!=null)
+          
+            this.hero = cast.GetFirstActor("hero");
+            
+            foreach (Actor platform in cast.GetActors("platform"))
             {
-            // Console.WriteLine("Was this called?");
-            ground = cast.GetFirstActor("ground");
-            }
-            if(cast.GetFirstActor("hero")!=null)
-            {
-            // Console.WriteLine("Was this called?");
-            hero = cast.GetFirstActor("hero");
-            }
-            if(hero != null && ground != null)
-            {
-                float vy = hero.GetVy();
-                // Console.WriteLine("Was this called?");
-                // Actor? collideGround = this.physicsService.CheckCollision(this.hero, this.ground);
-                if (this.physicsService.CheckCollision(this.hero, this.ground))
+                if(hero != null)
                 {
-                    // ApplyGravity.gravity = false;
-                    // Console.WriteLine("gravity worked");
-                    // this.hero = cast.GetFirstActor("hero");
-                    this.hero.SetVy(0);
-                    (float, float) upLeftGround = ground.GetTopLeft();
-                    int halfHero = (this.hero.GetHeight())/2;
-                    this.hero.SetY((upLeftGround.Item2)-halfHero);
-                    
-                }
-                else
-                {
-                    // ApplyGravity.gravity = true;
-                    // Console.WriteLine("gravity falls");
+                    float vy = hero.GetVy();
+                    // Console.WriteLine("Was this called?");
+                    // How do you create a boolean that would set the apply gravity to be false here? --Jeremy Doung
+                    // Actor? collideGround = this.physicsService.CheckCollision(this.hero, this.ground);
+                    if (this.physicsService.CheckCollision(this.hero, platform))
+                    {
+                        // ApplyGravity.gravity = false;
+                        // Console.WriteLine("gravity worked");
+                        // this.hero = cast.GetFirstActor("hero");
+                        if(this.physicsService.IsAbove(this.hero, platform))
+                        {
+                            this.hero.SetVy(0);
+                            (float, float) upLeftPlatform = platform.GetTopLeft();
+                            int halfHero = (this.hero.GetHeight())/2;
+                            this.hero.SetY((upLeftPlatform.Item2)-halfHero);
+                            this.hero.SetGround(true);
+                        }
+                        if(this.physicsService.IsBelow(this.hero, platform))
+                        {
+                            this.hero.SetVy(0);
+                            (float, float) belowLeftPlatform = platform.GetBottomLeft();
+                            int halfHero = (this.hero.GetHeight())/2;
+                            this.hero.SetY((belowLeftPlatform.Item2)+halfHero);
+                        }
+                        // if(this.physicsService.IsLeftOfhero, platform))
+                        // {
+                        //     this.hero.SetVy(0);
+                        //     (float, float) upLeftPlatform = platform.GetTopLeft();
+                        //     int halfHero = (this.hero.GetHeight())/2;
+                        //     this.hero.SetY((upLeftPlatform.Item2)-halfHero);
+                        //     this.hero.SetGround(true);
+                        // }
+                        // if(this.physicsService.IsRightOf(this.hero, platform))
+                        // {
+                        //     this.hero.SetVy(0);
+                        //     (float, float) upLeftPlatform = platform.GetTopLeft();
+                        //     int halfHero = (this.hero.GetHeight())/2;
+                        //     this.hero.SetY((upLeftPlatform.Item2)-halfHero);
+                        //     this.hero.SetGround(true);
+                        // }
+                    }
                 }
             }
         }
