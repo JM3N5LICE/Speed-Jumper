@@ -46,34 +46,34 @@ namespace hero.script
                         if(this.physicsService.IsAbove(this.hero, platform))
                         {
                             this.hero.SetVy(0);
-                            (float, float) upLeftPlatform = platform.GetTopLeft();
+                            (float, float) topLeft = platform.GetTopLeft();
                             int halfHero = (this.hero.GetHeight())/2;
-                            this.hero.SetY((upLeftPlatform.Item2)-halfHero);
+                            this.hero.SetY((topLeft.Item2)-halfHero);
                             this.hero.SetGround(true);
                         }
                         if(this.physicsService.IsBelow(this.hero, platform))
                         {
                             this.hero.SetVy(0);
-                            (float, float) belowLeftPlatform = platform.GetBottomLeft();
+                            (float, float) bottomLeft = platform.GetBottomLeft();
                             int halfHero = (this.hero.GetHeight())/2;
-                            this.hero.SetY((belowLeftPlatform.Item2)+halfHero);
+                            this.hero.SetY((bottomLeft.Item2)+halfHero);
                         }
-                        // if(this.physicsService.IsLeftOfhero, platform))
-                        // {
-                        //     this.hero.SetVy(0);
-                        //     (float, float) upLeftPlatform = platform.GetTopLeft();
-                        //     int halfHero = (this.hero.GetHeight())/2;
-                        //     this.hero.SetY((upLeftPlatform.Item2)-halfHero);
-                        //     this.hero.SetGround(true);
-                        // }
-                        // if(this.physicsService.IsRightOf(this.hero, platform))
-                        // {
-                        //     this.hero.SetVy(0);
-                        //     (float, float) upLeftPlatform = platform.GetTopLeft();
-                        //     int halfHero = (this.hero.GetHeight())/2;
-                        //     this.hero.SetY((upLeftPlatform.Item2)-halfHero);
-                        //     this.hero.SetGround(true);
-                        // }
+                        if(this.physicsService.IsLeftOf(hero, platform))
+                        {
+                            this.hero.SetVx(0);
+                            (float, float) topLeft = platform.GetTopLeft();
+                            int halfHero = (this.hero.GetWidth())/2;
+                            this.hero.SetX((topLeft.Item1)-halfHero);
+                            
+                        }
+                        if(this.physicsService.IsRightOf(this.hero, platform))
+                        {
+                            this.hero.SetVx(0);
+                            (float, float) topRight = platform.GetTopRight();
+                            int halfHero = (this.hero.GetWidth())/2;
+                            this.hero.SetX((topRight.Item1)+halfHero);
+                            
+                        }
                     }
                 }
             }
