@@ -61,7 +61,7 @@ namespace hero
             // Create the player
             Hero hero = new Hero("", 50, 70, W_SIZE.Item1/2, W_SIZE.Item2/2, 0, 0, 100);
             Endpoint endpoint = new Endpoint("", 50, 70, 3000, 700, 0, 0); 
-
+            
 
             // Create the platform
             // Platform platform = new InstantiatePlatform();
@@ -85,8 +85,7 @@ namespace hero
             cast.AddActor("platform", ground);
 
             cast.AddActor("endpoint", endpoint);
-
-
+            
             // cast.AddActor("score", score);
 
             // Create the script
@@ -98,6 +97,7 @@ namespace hero
 
             // // Add all update actions
             script.AddAction("update", new InstantiatePlatform(1));
+            script.AddAction("update", new InstantiateEnemy(1));
             script.AddAction("update", new ApplyGravity(1));
             script.AddAction("update", new MoveActorsAction(2, physicsService));
             script.AddAction("update", new HandleGroundCollisions(1, physicsService));
@@ -114,6 +114,8 @@ namespace hero
 
             // Yo, director, do your thing!
             director.DirectScene(cast, script);
+
+            
         }
     }
 }

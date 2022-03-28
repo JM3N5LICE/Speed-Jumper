@@ -21,7 +21,6 @@ namespace hero.script {
             this.screenService.FillScreen(Color.WHITE);
             foreach (Actor actor in cast.GetAllActors()) {
                 Color actorColor = actor is Hero ? Color.BLUE : Color.BLACK;
-                
                 this.screenService.DrawRectangle(actor.GetPosition(), actor.GetWidth(), actor.GetHeight(), actorColor, 5);
             }
             // this.screenService.DrawActors(cast.GetAllActors());
