@@ -76,3 +76,25 @@ Jeff - finish ground collisions
 
 Justyn & Jeff 
     - work on jumping action
+
+
+3/28/22
+Assignemtns
+
+Enemies
+-ground collisions 
+-Hero collisions
+-Movement
+-gravity
+-red box
+
+Instantiate Enemies
+-Starting point
+-added to cast
+
+Game over
+-remove all actors 
+-set screen background to black screen 
+-display game over message 
+-play game over sound 
+-break the game loop
