@@ -52,7 +52,7 @@ namespace hero.script {
                     {
                         if (actor != this.hero)
                         {
-                            actor.SetVx(-this.heroMovementVel);
+                            actor.SetVx(this.heroMovementVel);
                         }
 
 
