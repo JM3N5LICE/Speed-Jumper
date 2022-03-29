@@ -9,12 +9,14 @@ namespace hero.script {
         
         private RaylibKeyboardService keyboardService;
         private genie.cast.Actor? hero;
+        private genie.cast.Actor? enemy;
         private List<int> keysOfInterest;
         private int heroMovementVel;
 
         public HandleHeroMovementAction(int priority, RaylibKeyboardService keyboardService) : base(priority) {
             this.keyboardService = keyboardService;
             this.hero = null;
+            this.enemy = null;
             this.heroMovementVel = 4;
             this.keysOfInterest = new List<int>();
             this.keysOfInterest.Add(Keys.LEFT);
@@ -26,7 +28,16 @@ namespace hero.script {
             
             // Grab the hero from the cast
             this.hero = cast.GetFirstActor("hero");
-
+            this.enemy = cast.GetFirstActor("enemy");
+            
+            foreach (Actor actor in cast.GetAllActors())
+            
+            {
+                if (actor == this.enemy)
+                        {
+                            actor.SetVx(5);
+                        }
+            }
             // Only move if hero is not null
             if (this.hero != null) {
                 
@@ -41,8 +52,9 @@ namespace hero.script {
                     {
                         if (actor != this.hero)
                         {
-                            actor.SetVx(this.heroMovementVel);
+                            actor.SetVx(-this.heroMovementVel);
                         }
+
 
                     }
                 }
