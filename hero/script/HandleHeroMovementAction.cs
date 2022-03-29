@@ -3,6 +3,7 @@ using genie.cast;
 using genie.script;
 using genie.services;
 using genie.services.raylib;
+using hero.cast;
 
 namespace hero.script {
     class HandleHeroMovementAction : genie.script.Action {
@@ -30,14 +31,6 @@ namespace hero.script {
             this.hero = cast.GetFirstActor("hero");
             this.enemy = cast.GetFirstActor("enemy");
             
-            foreach (Actor actor in cast.GetAllActors())
-            
-            {
-                if (actor == this.enemy)
-                        {
-                            actor.SetVx(5);
-                        }
-            }
             // Only move if hero is not null
             if (this.hero != null) {
                 
@@ -52,7 +45,8 @@ namespace hero.script {
                     {
                         if (actor != this.hero)
                         {
-                            actor.SetVx(-this.heroMovementVel);
+                            // actor.SetVx(enemy.GetVXConstant() + this.heroMovementVel);
+                            actor.SetVx(this.heroMovementVel);
                         }
 
 
@@ -64,7 +58,7 @@ namespace hero.script {
                     {
                         if (actor != this.hero)
                         {
-                            actor.SetVx(-this.heroMovementVel);
+                            actor.SetVx(actor.GetVx() - this.heroMovementVel);
                         }
                     }
                 }
@@ -77,7 +71,7 @@ namespace hero.script {
 
                 // If none of the LEFT or RIGHT keys are down, x-velocity is 0
                 if (!(keysState[Keys.LEFT] || keysState[Keys.RIGHT])) {
-                    foreach (Actor actor in cast.GetAllActors())
+                    foreach (Actor actor in cast.GetActors("platform"))
                     {
                         if (actor != this.hero)
                         {
