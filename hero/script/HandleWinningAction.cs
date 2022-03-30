@@ -35,9 +35,10 @@ namespace hero.script
                 // Actor? collideGround = this.physicsService.CheckCollision(this.hero, this.ground);
                 if (this.physicsService.CheckCollision(this.hero, endpoint))
                 {
-                    // ApplyGravity.gravity = false;
-                    // Console.WriteLine("gravity worked");
-                    // this.hero = cast.GetFirstActor("hero");
+                    // Black Screen
+                    // Display Winning Message
+                    // Play winning sound
+                    // Close the game
                     Console.WriteLine("You win!");
                 }
             } 
