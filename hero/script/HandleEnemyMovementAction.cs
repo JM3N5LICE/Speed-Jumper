@@ -19,7 +19,7 @@ namespace hero.script {
             List<Actor> enemyList = cast.GetActors("enemy");
             foreach(Enemy enemy in enemyList){
                 if((DateTime.Now - enemy.GetLastDirectionSwitch()).Seconds >= 3){
-                    enemy.SetVx(-enemy.GetVx());
+                    enemy.SetDirection(-enemy.GetDirection());
                     enemy.SetLastDirectionSwitch(DateTime.Now);
                 }
             }
