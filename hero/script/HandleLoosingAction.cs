@@ -33,6 +33,7 @@ namespace hero.script {
         private void endGame()
         {
             // Screen black
+            
             // Say Game Over
             // Play Game over Sound 
             // Close the game

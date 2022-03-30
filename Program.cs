@@ -106,7 +106,7 @@ namespace hero
 
             // script.AddAction("update", new HandleHeroPlatformCollision(2, physicsService));
 
-            script.AddAction("update", new HandleHeroEndpointCollision(2, physicsService));
+            script.AddAction("update", new HandleWinningAction(2, physicsService));
 
             
 
