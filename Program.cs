@@ -61,6 +61,7 @@ namespace hero
             // Create the player
             Hero hero = new Hero("./hero/assets/spaceship/mario.png", 50, 70, W_SIZE.Item1/2, W_SIZE.Item2/2, 0, 0, 100);
             Endpoint endpoint = new Endpoint("./hero/assets/endpoint.png", 75, 500, 3000, 500, 0, 0); 
+
             
 
             // Create the platform
@@ -99,6 +100,7 @@ namespace hero
             script.AddAction("update", new InstantiatePlatform(1));
             script.AddAction("update", new InstantiateEnemy(1));
             script.AddAction("update", new ApplyGravity(1));
+
             script.AddAction("update", new HandleEnemyMovementAction(2));
             script.AddAction("update", new MoveActorsAction(2, physicsService));
             script.AddAction("update", new HandleGroundCollisions(1, physicsService));
