@@ -10,6 +10,8 @@ namespace hero.script {
         
         private RaylibKeyboardService keyboardService;
         private genie.cast.Actor? hero;
+
+
         private genie.cast.Actor? endpoint;
         private List<int> keysOfInterest;
         private int heroMovementVel;
