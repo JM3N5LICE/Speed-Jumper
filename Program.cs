@@ -54,12 +54,12 @@ namespace hero
             Cast cast = new Cast();
 
             // Create the ground
-            Ground ground = new Ground("./hero/assets/ground.png", L_SIZE.Item1,(100), //path, width, height
+            Ground ground = new Ground("", L_SIZE.Item1,(100), //path, width, height
                                                     L_SIZE.Item1/2, W_SIZE.Item2,   // x and y
                                                     0, 0);  // vx and vy
             
             // Create the player
-            Hero hero = new Hero("./hero/assets/spaceship/mario.png", 50, 70, W_SIZE.Item1/2, W_SIZE.Item2/2, 0, 0, 100);
+            Hero hero = new Hero("", 50, 70, W_SIZE.Item1/2, W_SIZE.Item2/2, 0, 0, 100);
             Endpoint endpoint = new Endpoint("", 50, 70, 3000, 700, 0, 0); 
             
 
@@ -69,7 +69,7 @@ namespace hero
 
             // Scale the background to have the same dimensions as the Window,
             // then position it at the center of the screen
-            Background backgroundImage = new Background("./hero/assets/sky.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
+            // Background backgroundImage = new Background("./hero/assets/space.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
 
             // Create the Player Score
             // PlayerScore score = new PlayerScore(path:"", score:0);
@@ -78,7 +78,7 @@ namespace hero
             // StartGameButton startGameButton = new StartGameButton("./hero/assets/others/start_button.png", 305, 113, W_SIZE.Item1/2, W_SIZE.Item2/2);
 
             // Give actors to cast
-            cast.AddActor("background_image", backgroundImage);
+            // cast.AddActor("background_image", backgroundImage);
             cast.AddActor("hero", hero);
             // cast.AddActor("start_button", startGameButton);
 
@@ -96,7 +96,7 @@ namespace hero
             script.AddAction("input", new HandleHeroMovementAction(3, keyboardService));
 
             // // Add all update actions
-            script.AddAction("update", new InstantiatePlatform(1, "./hero/assets/sky.png"));
+            script.AddAction("update", new InstantiatePlatform(1));
             script.AddAction("update", new InstantiateEnemy(1));
             script.AddAction("update", new ApplyGravity(1));
             script.AddAction("update", new MoveActorsAction(2, physicsService));
@@ -109,7 +109,6 @@ namespace hero
             
 
             // // Add all output actions
-            script.AddAction("output", new PlayBackgroundMusicAction(1, "./hero/assets/sound/mario_heavy.mp3", audioservice));
             script.AddAction("output", new DrawActorsAction(2, screenService));
             script.AddAction("output", new UpdateScreenAction(3, screenService));
 
