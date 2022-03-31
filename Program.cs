@@ -59,8 +59,8 @@ namespace hero
                                                     0, 0);  // vx and vy
             
             // Create the player
-            Hero hero = new Hero("", 50, 70, W_SIZE.Item1/2, W_SIZE.Item2/2, 0, 0, 100);
-            Endpoint endpoint = new Endpoint("", 50, 70, 3000, 700, 0, 0); 
+            Hero hero = new Hero("./hero/assets/spaceship/mario.png", 50, 70, W_SIZE.Item1/2, W_SIZE.Item2/2, 0, 0, 100);
+            Endpoint endpoint = new Endpoint("./hero/assets/endpoint.png", 75, 500, 3000, 500, 0, 0); 
             
 
             // Create the platform

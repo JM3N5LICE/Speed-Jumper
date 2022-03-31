@@ -3,6 +3,7 @@ using genie.cast;
 using genie.script;
 using genie.services;
 using genie.services.raylib;
+using hero.cast;
 
 namespace hero.script
 {
@@ -11,7 +12,9 @@ namespace hero.script
         // creates member variables
         private genie.cast.Actor? hero;
         RaylibPhysicsService? physicsService;
-        
+
+        HandleHeroMovementAction? movement;
+        Winner winner = new Winner("./hero/assets/winner.png", 1000, 500, 500, 400, 0, 0);
         public HandleHeroEndpointCollision(int priority, RaylibPhysicsService physicsService) : base(priority)
         {
             this.hero = null;
@@ -23,6 +26,7 @@ namespace hero.script
         public override void execute(Cast cast, Script script, Clock clock, Callback callback)
         {
             hero = cast.GetFirstActor("hero");
+            
 
             // Console.WriteLine("Was this called?");
             foreach (Actor endpoint in cast.GetActors("endpoint"))
@@ -38,7 +42,12 @@ namespace hero.script
                         // ApplyGravity.gravity = false;
                         // Console.WriteLine("gravity worked");
                         // this.hero = cast.GetFirstActor("hero");
-                        Console.WriteLine("You win!");
+
+                        
+                        cast.AddActor("winner", winner);
+                        movement = null;
+                        
+                        
                     }
                     else
                     {

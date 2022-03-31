@@ -12,7 +12,7 @@ namespace hero.script {
     {
 
         
-            Enemy Enemy1 = new Enemy("", 50, 100, 900, 700, 15, 0);
+            Enemy Enemy1 = new Enemy("./hero/assets/goomba.png", 50, 50, 900, 725, 15, 0);
             // Platform Enemy2 = new Platform("", 100, 50, 500, 600, 0, 0);
             // Platform Enemy3 = new Platform("", 100, 50, 1200, 600, 0, 0);
             // Platform Enemy4 = new Platform("", 100, 50, 1800, 600, 0, 0);
