@@ -24,6 +24,8 @@ namespace hero.script {
             //     this.screenService.DrawRectangle(actor.GetPosition(), actor.GetWidth(), actor.GetHeight(), actorColor, 5);
             // }
             this.screenService.DrawActors(cast.GetAllActors());
+            Actor ground = cast.GetFirstActor("platform");
+            this.screenService.DrawRectangle(ground.GetPosition(), ground.GetWidth(), ground.GetHeight(), Color.GREEN, 0);
         }
     }
 }

@@ -70,7 +70,7 @@ namespace hero
 
             // Scale the background to have the same dimensions as the Window,
             // then position it at the center of the screen
-            // Background backgroundImage = new Background("./hero/assets/space.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
+            Background backgroundImage = new Background("./hero/assets/background.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
 
             // Create the Player Score
             // PlayerScore score = new PlayerScore(path:"", score:0);
@@ -79,7 +79,7 @@ namespace hero
             // StartGameButton startGameButton = new StartGameButton("./hero/assets/others/start_button.png", 305, 113, W_SIZE.Item1/2, W_SIZE.Item2/2);
 
             // Give actors to cast
-            // cast.AddActor("background_image", backgroundImage);
+            cast.AddActor("background_image", backgroundImage);
             cast.AddActor("hero", hero);
             // cast.AddActor("start_button", startGameButton);
 

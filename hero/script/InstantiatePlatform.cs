@@ -11,11 +11,11 @@ namespace hero.script {
     {
 
         
-            Platform platform1 = new Platform("", 100, 50, 300, 500, 0, 0);
-            Platform platform2 = new Platform("", 100, 50, 500, 600, 0, 0);
-            Platform platform3 = new Platform("", 100, 50, 1200, 600, 0, 0);
-            Platform platform4 = new Platform("", 100, 50, 1800, 600, 0, 0);
-            Platform platform5 = new Platform("", 100, 50, 2400, 600, 0, 0);
+            Platform platform1 = new Platform("./hero/assets/brick.png", 100, 50, 300, 500, 0, 0);
+            Platform platform2 = new Platform("./hero/assets/brick.png", 100, 50, 500, 600, 0, 0);
+            Platform platform3 = new Platform("./hero/assets/brick.png", 100, 50, 1200, 600, 0, 0);
+            Platform platform4 = new Platform("./hero/assets/brick.png", 100, 50, 1800, 600, 0, 0);
+            Platform platform5 = new Platform("./hero/assets/brick.png", 100, 50, 2400, 600, 0, 0);
         // cast.AddActor("platform", platform1);
         public InstantiatePlatform(int priority) : base(priority)
         {   
