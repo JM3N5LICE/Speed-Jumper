@@ -69,8 +69,8 @@ namespace hero
 
             // Scale the background to have the same dimensions as the Window,
             // then position it at the center of the screen
-            // Background backgroundImage = new Background("./hero/assets/space.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
-
+            Background backgroundImage = new Background("./hero/assets/sky.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
+            Background GameOverScreen = new Background("./hero/assets/GameOver.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
             // Create the Player Score
             // PlayerScore score = new PlayerScore(path:"", score:0);
 
@@ -101,7 +101,7 @@ namespace hero
             script.AddAction("update", new ApplyGravity(1));
             script.AddAction("update", new MoveActorsAction(2, physicsService));
             script.AddAction("update", new HandleGroundCollisions(1, physicsService));
-            // script.AddAction("update", new GameOver(1, screenService));
+            script.AddAction("update", new HandleLoosingAction(1, screenService));
             
 
             // script.AddAction("update", new HandleHeroPlatformCollision(2, physicsService));

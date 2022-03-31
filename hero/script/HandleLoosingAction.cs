@@ -26,11 +26,11 @@ namespace hero.script {
             //player fell off map
             if(this.hero.GetY() >= levelHeight || this.hero.GetHP() <= 0)
             {
-                endGame();
+                endGame(cast);
             }
 
         }
-        private void endGame()
+        private void endGame(Cast cast)
         {
             // Screen black
             
