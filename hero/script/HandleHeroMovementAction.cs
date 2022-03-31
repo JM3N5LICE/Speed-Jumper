@@ -3,23 +3,20 @@ using genie.cast;
 using genie.script;
 using genie.services;
 using genie.services.raylib;
-using hero.cast;
 
 namespace hero.script {
     class HandleHeroMovementAction : genie.script.Action {
         
         private RaylibKeyboardService keyboardService;
         private genie.cast.Actor? hero;
-
-
-        private genie.cast.Actor? endpoint;
+        private genie.cast.Actor? enemy;
         private List<int> keysOfInterest;
         private int heroMovementVel;
 
         public HandleHeroMovementAction(int priority, RaylibKeyboardService keyboardService) : base(priority) {
             this.keyboardService = keyboardService;
             this.hero = null;
-            this.endpoint = null;
+            this.enemy = null;
             this.heroMovementVel = 4;
             this.keysOfInterest = new List<int>();
             this.keysOfInterest.Add(Keys.LEFT);
@@ -31,8 +28,7 @@ namespace hero.script {
             
             // Grab the hero from the cast
             this.hero = cast.GetFirstActor("hero");
-            this.endpoint = cast.GetFirstActor("endpoint");
-            
+            this.enemy = cast.GetFirstActor("enemy");
             // Only move if hero is not null
             if (this.hero != null) {
                 
@@ -43,36 +39,24 @@ namespace hero.script {
                 // actual movement
                 if (keysState[Keys.LEFT]) {
                     // this.hero.SetVx(-this.heroMovementVel);
-                    foreach (Actor actor in cast.GetActors("platform"))
+                    foreach (Actor actor in cast.GetAllActors())
                     {
-                        actor.SetVx(this.heroMovementVel);
-                    }
-                    foreach (Enemy actor in cast.GetActors("enemy"))
-                    {
-                        actor.SetVx(actor.GetDirection() * actor.GetVXConstant() + this.heroMovementVel);
-                    }
-                    if(endpoint != null)
-                    {
-                        this.endpoint.SetVx(this.heroMovementVel); 
+                        if (actor != this.hero)
+                        {
+                            actor.SetVx(this.heroMovementVel);
+                        }
 
                     }
                 }
                 if (keysState[Keys.RIGHT]) {
                     // this.hero.SetVx(-this.heroMovementVel);
-                    foreach (Actor actor in cast.GetActors("platform"))
+                    foreach (Actor actor in cast.GetAllActors())
                     {
-                        actor.SetVx(-this.heroMovementVel);
+                        if (actor != this.hero)
+                        {
+                            actor.SetVx(-this.heroMovementVel);
+                        }
                     }
-                    foreach (Enemy actor in cast.GetActors("enemy"))
-                    {
-                        actor.SetVx(actor.GetDirection() * actor.GetVXConstant() - this.heroMovementVel);
-                    }
-
-                    if(endpoint != null)
-                    {
-                        this.endpoint.SetVx(-this.heroMovementVel); 
-                    }
-
                 }
                 // Hero jumping
                 if (keysState[Keys.SPACE] && hero.getGround()) {
@@ -83,17 +67,12 @@ namespace hero.script {
 
                 // If none of the LEFT or RIGHT keys are down, x-velocity is 0
                 if (!(keysState[Keys.LEFT] || keysState[Keys.RIGHT])) {
-                    foreach (Actor actor in cast.GetActors("platform"))
-                    {    
-                        actor.SetVx(0);  
-                    }
-                    foreach (Enemy actor in cast.GetActors("enemy"))
+                    foreach (Actor actor in cast.GetAllActors())
                     {
-                        actor.SetVx(actor.GetDirection() * actor.GetVXConstant());
-                    }
-                    if(endpoint != null)
-                    {
-                        this.endpoint.SetVx(0); 
+                        if (actor != this.hero)
+                        {
+                            actor.SetVx(0);
+                        }
                     }
                 }
 

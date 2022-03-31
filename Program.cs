@@ -99,10 +99,8 @@ namespace hero
             script.AddAction("update", new InstantiatePlatform(1, "./hero/assets/sky.png"));
             script.AddAction("update", new InstantiateEnemy(1));
             script.AddAction("update", new ApplyGravity(1));
-            script.AddAction("update", new HandleEnemyMovementAction(2));
             script.AddAction("update", new MoveActorsAction(2, physicsService));
             script.AddAction("update", new HandleGroundCollisions(1, physicsService));
-            script.AddAction("update", new HandleHeroEnemyCollisions(1, physicsService));
 
             // script.AddAction("update", new HandleHeroPlatformCollision(2, physicsService));
 
