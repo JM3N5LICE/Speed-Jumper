@@ -52,6 +52,7 @@ namespace hero.script {
                     if(endpoint != null)
                     {
                         this.endpoint.SetVx(this.heroMovementVel); 
+
                     }
                 }
                 if (keysState[Keys.RIGHT]) {
