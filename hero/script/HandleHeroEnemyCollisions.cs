@@ -42,34 +42,18 @@ namespace hero.script
                         // this.hero = cast.GetFirstActor("hero");
                         if(this.physicsService.IsAbove(this.hero, enemy))
                         {
-                            this.hero.SetVy(0);
-                            (float, float) topLeft = enemy.GetTopLeft();
-                            int halfHero = (this.hero.GetHeight())/2;
-                            this.hero.SetY((topLeft.Item2)-halfHero);
-                            this.hero.SetGround(true);
+                            cast.RemoveActor("enemy", enemy);
                         }
-                        if(this.physicsService.IsBelow(this.hero, enemy))
+                        // else if(this.physicsService.IsBelow(this.hero, enemy))
+                        // {
+                        //     this.hero.SetVy(0);
+                        //     (float, float) bottomLeft = enemy.GetBottomLeft();
+                        //     int halfHero = (this.hero.GetHeight())/2;
+                        //     this.hero.SetY((bottomLeft.Item2)+halfHero);
+                        // }
+                        else
                         {
-                            this.hero.SetVy(0);
-                            (float, float) bottomLeft = enemy.GetBottomLeft();
-                            int halfHero = (this.hero.GetHeight())/2;
-                            this.hero.SetY((bottomLeft.Item2)+halfHero);
-                        }
-                        if(this.physicsService.IsLeftOf(hero, enemy))
-                        {
-                            this.hero.SetVx(0);
-                            (float, float) topLeft = enemy.GetTopLeft();
-                            int halfHero = (this.hero.GetWidth())/2;
-                            this.hero.SetX((topLeft.Item1)-halfHero);
-                            
-                        }
-                        if(this.physicsService.IsRightOf(this.hero, enemy))
-                        {
-                            this.hero.SetVx(0);
-                            (float, float) topRight = enemy.GetTopRight();
-                            int halfHero = (this.hero.GetWidth())/2;
-                            this.hero.SetX((topRight.Item1)+halfHero);
-                            
+                            cast.RemoveActor("hero", hero);
                         }
                     }
                 }

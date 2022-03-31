@@ -16,11 +16,14 @@ namespace hero.script {
 
         public override void execute(Cast cast, Script script, Clock clock, Callback callback) {
 
-            if(gravity == true)
+            if(gravity == true )
             {
                 this.hero = cast.GetFirstActor("hero");
-                float vy = this.hero.GetVy();
-                this.hero.SetVy(vy+5);
+                if(this.hero != null)
+                {
+                    float vy = this.hero.GetVy();
+                    this.hero.SetVy(vy+5);
+                }
             }
             // make the hero stop on the platforms and ground 
             

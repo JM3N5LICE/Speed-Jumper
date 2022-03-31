@@ -34,6 +34,7 @@ namespace hero.script {
                 // stop the hero from moving & close the game
                 cast.RemoveActor("hero", hero);
                 // Play Game over Sound
+                script.RemoveAction("update", this);
             }
         }
     }
