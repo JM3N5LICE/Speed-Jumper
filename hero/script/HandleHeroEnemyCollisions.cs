@@ -47,7 +47,7 @@ namespace hero.script
                             int halfHero = (this.hero.GetHeight())/2;
                             this.hero.SetY((topLeft.Item2)-halfHero);
                             this.hero.SetGround(true);
-                                                    }
+                        }
                         if(this.physicsService.IsBelow(this.hero, enemy))
                         {
                             this.hero.SetVy(0);
