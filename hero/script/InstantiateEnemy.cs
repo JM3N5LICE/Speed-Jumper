@@ -12,7 +12,7 @@ namespace hero.script {
     {
 
         
-            Enemy enemy1 = new Enemy("", 50, 100, 900, 700, 15, 0);
+            Enemy Enemy1 = new Enemy("", 50, 100, 900, 700, 15, 0);
             // Platform Enemy2 = new Platform("", 100, 50, 500, 600, 0, 0);
             // Platform Enemy3 = new Platform("", 100, 50, 1200, 600, 0, 0);
             // Platform Enemy4 = new Platform("", 100, 50, 1800, 600, 0, 0);
@@ -24,7 +24,7 @@ namespace hero.script {
         }
         public override void execute(Cast cast, Script script, Clock clock, Callback callback)
         {
-            cast.AddActor("enemy", enemy1);
+            cast.AddActor("enemy", Enemy1);
             // cast.AddActor("enemy", Enemy2);
             // cast.AddActor("enemy", Enemy3);
             // cast.AddActor("enemy", Enemy4);
