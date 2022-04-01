@@ -40,7 +40,7 @@ namespace hero.script
                     // Play winning sound
                     // Close the game
                     cast.AddActor("winner", winner);
-                    Console.WriteLine("You win!");
+                    
                 }
             } 
         }
