@@ -101,7 +101,7 @@ namespace hero.script {
                 if (keysState[Keys.SPACE] && hero.getGround()) {
                     this.hero.SetVy(-50);
                     this.hero.SetGround(false);
-                    this.audioService.PlaySound("./hero/assets/sound/mario_jump.mp3", (float) 0.1);
+                    this.audioService.PlaySound("./hero/assets/sound/mario_jump.mp3", (float) 0.5);
                     
                 }
 
