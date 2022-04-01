@@ -9,14 +9,16 @@ namespace hero.script {
     class HandleHeroMovementAction : genie.script.Action {
         
         private RaylibKeyboardService keyboardService;
+        private RaylibAudioService audioService;
         private genie.cast.Actor? hero;
         private genie.cast.Actor? background;
         private genie.cast.Actor? endpoint;
         private List<int> keysOfInterest;
         private int heroMovementVel;
 
-        public HandleHeroMovementAction(int priority, RaylibKeyboardService keyboardService) : base(priority) {
+        public HandleHeroMovementAction(int priority, RaylibKeyboardService keyboardService, RaylibAudioService audioService) : base(priority) {
             this.keyboardService = keyboardService;
+            this.audioService = audioService;
             this.hero = null;
 
             this.background = null;
@@ -27,6 +29,7 @@ namespace hero.script {
             this.keysOfInterest.Add(Keys.LEFT);
             this.keysOfInterest.Add(Keys.RIGHT);
             this.keysOfInterest.Add(Keys.SPACE);
+            
         }
 
         public override void execute(Cast cast, Script script, Clock clock, Callback callback) {
@@ -36,6 +39,7 @@ namespace hero.script {
 
             this.background = cast.GetFirstActor("background_image");
             this.endpoint = cast.GetFirstActor("endpoint");
+            
             
 
             // Only move if hero is not null
@@ -97,6 +101,7 @@ namespace hero.script {
                 if (keysState[Keys.SPACE] && hero.getGround()) {
                     this.hero.SetVy(-50);
                     this.hero.SetGround(false);
+                    this.audioService.PlaySound("./hero/assets/sound/mario_shot.mp3", (float) 1);
                     
                 }
 
@@ -120,6 +125,7 @@ namespace hero.script {
                 // If none of the UP or DOWN keys are down, y-velocity is 0
                 if (!(keysState[Keys.SPACE])) {
                     this.hero.SetVy(0);
+                    
                 }
                 Console.WriteLine(this.hero.GetPosition());
             }

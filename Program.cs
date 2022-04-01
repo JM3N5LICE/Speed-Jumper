@@ -96,7 +96,7 @@ namespace hero
 
             // Add all input actions
             script.AddAction("input", new HandleQuitAction(2,screenService));
-            script.AddAction("input", new HandleHeroMovementAction(3, keyboardService));
+            script.AddAction("input", new HandleHeroMovementAction(3, keyboardService, audioService));
 
             // // Add all update actions
             script.AddAction("update", new InstantiatePlatform(1));
