@@ -59,8 +59,9 @@ namespace hero
                                                     0, 0);  // vx and vy
             
             // Create the player
-            Hero hero = new Hero("", 50, 70, W_SIZE.Item1/2, W_SIZE.Item2/2, 0, 0, 100);
-            Endpoint endpoint = new Endpoint("", 50, 70, 3000, 700, 0, 0); 
+            Hero hero = new Hero("./hero/assets/spaceship/mario.png", 50, 70, W_SIZE.Item1/2, W_SIZE.Item2/2, 0, 0, 100);
+            Endpoint endpoint = new Endpoint("./hero/assets/endpoint.png", 75, 500, 3000, 500, 0, 0); 
+
             
 
             // Create the platform
@@ -69,8 +70,10 @@ namespace hero
 
             // Scale the background to have the same dimensions as the Window,
             // then position it at the center of the screen
-            Background backgroundImage = new Background("./hero/assets/sky.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
+
             Background GameOverScreen = new Background("./hero/assets/GameOver.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
+            Background backgroundImage = new Background("./hero/assets/background.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
+
             // Create the Player Score
             // PlayerScore score = new PlayerScore(path:"", score:0);
 
@@ -78,7 +81,7 @@ namespace hero
             // StartGameButton startGameButton = new StartGameButton("./hero/assets/others/start_button.png", 305, 113, W_SIZE.Item1/2, W_SIZE.Item2/2);
 
             // Give actors to cast
-            // cast.AddActor("background_image", backgroundImage);
+            cast.AddActor("background_image", backgroundImage);
             cast.AddActor("hero", hero);
             // cast.AddActor("start_button", startGameButton);
 
@@ -99,11 +102,14 @@ namespace hero
             script.AddAction("update", new InstantiatePlatform(1));
             script.AddAction("update", new InstantiateEnemy(1));
             script.AddAction("update", new ApplyGravity(1));
+
+            script.AddAction("update", new HandleEnemyMovementAction(2));
             script.AddAction("update", new MoveActorsAction(2, physicsService));
             script.AddAction("update", new HandleGroundCollisions(1, physicsService));
             script.AddAction("update", new HandleLosingAction(1, screenService));
             script.AddAction("update", new HandleHeroEnemyCollisions(2, physicsService));
             script.AddAction("update", new HandleWinningAction(2, physicsService));
+
 
             
 
