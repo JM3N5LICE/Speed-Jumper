@@ -44,7 +44,7 @@ namespace hero
             RaylibKeyboardService keyboardService = new RaylibKeyboardService();
             RaylibPhysicsService physicsService = new RaylibPhysicsService();
             RaylibScreenService screenService = new RaylibScreenService(W_SIZE, SCREEN_TITLE, FPS);
-            RaylibAudioService audioservice = new RaylibAudioService();
+            RaylibAudioService audioService = new RaylibAudioService();
             RaylibMouseService mouseService = new RaylibMouseService();
 
             // Create the director
@@ -116,7 +116,7 @@ namespace hero
             // // Add all output actions
             script.AddAction("output", new DrawActorsAction(2, screenService));
             script.AddAction("output", new UpdateScreenAction(3, screenService));
-            script.AddAction("output", new PlayBackgroundMusicAction(1, "asteroid/assets/sound/background_music.wav", audioservice));
+            script.AddAction("output", new PlayBackgroundMusicAction(1, "./hero/assets/sound/mario_heavy.mp3", audioService));
 
             // Yo, director, do your thing!
             director.DirectScene(cast, script);
