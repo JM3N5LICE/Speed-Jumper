@@ -44,7 +44,7 @@ namespace hero
             RaylibKeyboardService keyboardService = new RaylibKeyboardService();
             RaylibPhysicsService physicsService = new RaylibPhysicsService();
             RaylibScreenService screenService = new RaylibScreenService(W_SIZE, SCREEN_TITLE, FPS);
-            RaylibAudioService audioservice = new RaylibAudioService();
+            RaylibAudioService audioService = new RaylibAudioService();
             RaylibMouseService mouseService = new RaylibMouseService();
 
             // Create the director
@@ -73,7 +73,7 @@ namespace hero
 
             Background GameOverScreen = new Background("./hero/assets/GameOver.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
             Background backgroundImage = new Background("./hero/assets/background.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
-
+            
             // Create the Player Score
             // PlayerScore score = new PlayerScore(path:"", score:0);
 
@@ -96,7 +96,7 @@ namespace hero
 
             // Add all input actions
             script.AddAction("input", new HandleQuitAction(2,screenService));
-            script.AddAction("input", new HandleHeroMovementAction(3, keyboardService));
+            script.AddAction("input", new HandleHeroMovementAction(3, keyboardService, audioService));
 
             // // Add all update actions
             script.AddAction("update", new InstantiatePlatform(1));
@@ -116,6 +116,7 @@ namespace hero
             // // Add all output actions
             script.AddAction("output", new DrawActorsAction(2, screenService));
             script.AddAction("output", new UpdateScreenAction(3, screenService));
+            script.AddAction("output", new PlayBackgroundMusicAction(1, "./hero/assets/sound/mario_heavy.mp3", audioService));
 
             // Yo, director, do your thing!
             director.DirectScene(cast, script);
