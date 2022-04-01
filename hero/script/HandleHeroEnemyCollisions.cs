@@ -3,6 +3,7 @@ using genie.cast;
 using genie.script;
 using genie.services;
 using genie.services.raylib;
+using hero.cast;
 
 namespace hero.script
 {
@@ -53,7 +54,7 @@ namespace hero.script
                         // }
                         else
                         {
-                            cast.RemoveActor("hero", hero);
+                            ((HasLifeActor)hero).SetHP(0);
                         }
                     }
                 }
