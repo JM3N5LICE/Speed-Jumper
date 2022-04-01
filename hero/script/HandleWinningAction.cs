@@ -39,7 +39,7 @@ namespace hero.script
                     // Display Winning Message
                     // Play winning sound
                     // Close the game
-                    Console.WriteLine("You win!");
+                    // Console.WriteLine("You win!");
                 }
             } 
         }

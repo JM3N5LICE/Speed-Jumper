@@ -121,7 +121,7 @@ namespace hero.script {
                 if (!(keysState[Keys.SPACE])) {
                     this.hero.SetVy(0);
                 }
-                Console.WriteLine(this.hero.GetPosition());
+                // Console.WriteLine(this.hero.GetPosition());
             }
         }
     }

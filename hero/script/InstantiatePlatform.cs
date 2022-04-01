@@ -11,12 +11,20 @@ namespace hero.script {
     {
 
         
-            Platform platform1 = new Platform("./hero/assets/brick.png", 100, 50, 300, 500, 0, 0);
+            Platform platform1 = new Platform("./hero/assets/brick.png", 100, 50, 300, 600, 0, 0);
             Platform platform2 = new Platform("./hero/assets/brick.png", 100, 50, 500, 600, 0, 0);
-            Platform platform3 = new Platform("./hero/assets/brick.png", 100, 50, 1200, 600, 0, 0);
-            Platform platform4 = new Platform("./hero/assets/brick.png", 100, 50, 1800, 600, 0, 0);
-            Platform platform5 = new Platform("./hero/assets/brick.png", 100, 50, 2400, 600, 0, 0);
-        // cast.AddActor("platform", platform1);
+            Platform platform3 = new Platform("./hero/assets/brick.png", 100, 50, 1300, 600, 0, 0);
+            Platform platform4 = new Platform("./hero/assets/brick.png", 100, 50, 1500, 600, 0, 0);
+            Platform platform5 = new Platform("./hero/assets/brick.png", 100, 50, 1700, 600, 0, 0);
+
+            
+            Platform platform6 = new Platform("./hero/assets/brick.png", 100, 50, 1100, 500, 0, 0);
+            Platform platform7 = new Platform("./hero/assets/brick.png", 100, 50, 900, 600, 0, 0);
+            Platform platform8 = new Platform("./hero/assets/brick.png", 100, 50, 700, 600, 0, 0);
+            Platform platform9 = new Platform("./hero/assets/brick.png", 100, 50, 8150, 500, 0, 0);
+            Platform platform10 = new Platform("./hero/assets/brick.png", 100, 50, 8050, 600, 0, 0);
+
+
         public InstantiatePlatform(int priority) : base(priority)
         {   
 
@@ -28,6 +36,11 @@ namespace hero.script {
             cast.AddActor("platform", platform3);
             cast.AddActor("platform", platform4);
             cast.AddActor("platform", platform5);
+            cast.AddActor("platform", platform6);
+            cast.AddActor("platform", platform7);
+            cast.AddActor("platform", platform8);
+            cast.AddActor("platform", platform9);
+            cast.AddActor("platform", platform10);
             script.RemoveAction("update", this);
         }
     }
