@@ -26,7 +26,7 @@ namespace hero.script
         public override void execute(Cast cast, Script script, Clock clock, Callback callback)
         {
           
-        //     this.hero = cast.GetFirstActor("hero");
+            this.hero = cast.GetFirstActor("hero");
             
             foreach (Actor enemy in cast.GetActors("enemy"))
             {
