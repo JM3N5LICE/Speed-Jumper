@@ -73,7 +73,7 @@ namespace hero
 
             Background GameOverScreen = new Background("./hero/assets/GameOver.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
             Background backgroundImage = new Background("./hero/assets/background.png", W_SIZE.Item1, W_SIZE.Item2, W_SIZE.Item1/2, W_SIZE.Item2/2);
-
+            
             // Create the Player Score
             // PlayerScore score = new PlayerScore(path:"", score:0);
 
@@ -116,6 +116,7 @@ namespace hero
             // // Add all output actions
             script.AddAction("output", new DrawActorsAction(2, screenService));
             script.AddAction("output", new UpdateScreenAction(3, screenService));
+            script.AddAction("output", new PlayBackgroundMusicAction(1, "asteroid/assets/sound/background_music.wav", audioservice));
 
             // Yo, director, do your thing!
             director.DirectScene(cast, script);

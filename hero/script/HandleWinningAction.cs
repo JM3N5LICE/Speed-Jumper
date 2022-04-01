@@ -12,7 +12,7 @@ namespace hero.script
         // creates member variables
         private genie.cast.Actor? hero;
         RaylibPhysicsService? physicsService;
-        
+        Winner winner = new Winner("./hero/assets/winner.png", 1000, 500, 500, 400, 0, 0);
         public HandleWinningAction(int priority, RaylibPhysicsService physicsService) : base(priority)
         {
             this.hero = null;
@@ -39,6 +39,7 @@ namespace hero.script
                     // Display Winning Message
                     // Play winning sound
                     // Close the game
+                    cast.AddActor("winner", winner);
                     Console.WriteLine("You win!");
                 }
             } 
