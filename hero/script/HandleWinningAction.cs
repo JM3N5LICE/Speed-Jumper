@@ -12,7 +12,9 @@ namespace hero.script
         // creates member variables
         private genie.cast.Actor? hero;
         RaylibPhysicsService? physicsService;
-        
+
+        HandleHeroMovementAction? movement;
+        Winner winner = new Winner("./hero/assets/winner.png", 1000, 500, 500, 400, 0, 0);
         public HandleWinningAction(int priority, RaylibPhysicsService physicsService) : base(priority)
         {
             this.hero = null;
@@ -24,24 +26,37 @@ namespace hero.script
         public override void execute(Cast cast, Script script, Clock clock, Callback callback)
         {
             hero = cast.GetFirstActor("hero");
+            
 
             // Console.WriteLine("Was this called?");
-            Actor endpoint = cast.GetFirstActor("endpoint");
-            if(hero != null)
+            foreach (Actor endpoint in cast.GetActors("endpoint"))
             {
-                float vy = hero.GetVy();
-                // Console.WriteLine("Was this called?");
-                // How do you create a boolean that would set the apply gravity to be false here? --Jeremy Doung
-                // Actor? collideGround = this.physicsService.CheckCollision(this.hero, this.ground);
-                if (this.physicsService.CheckCollision(this.hero, endpoint))
+                if(hero != null)
                 {
-                    // Black Screen
-                    // Display Winning Message
-                    // Play winning sound
-                    // Close the game
-                    
-                }
-            } 
+                    float vy = hero.GetVy();
+                    // Console.WriteLine("Was this called?");
+                    // How do you create a boolean that would set the apply gravity to be false here? --Jeremy Doung
+                    // Actor? collideGround = this.physicsService.CheckCollision(this.hero, this.ground);
+                    if (this.physicsService.CheckCollision(this.hero, endpoint))
+                    {
+                        // ApplyGravity.gravity = false;
+                        // Console.WriteLine("gravity worked");
+                        // this.hero = cast.GetFirstActor("hero");
+
+                        
+                        cast.AddActor("winner", winner);
+                        movement = null;
+                        
+                        
+                    }
+                    else
+                    {
+                        // ApplyGravity.gravity = true;
+                        // Console.WriteLine("gravity falls");
+                    }
+                }    
+            }
+        
         }
     }
 }
