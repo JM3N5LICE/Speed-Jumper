@@ -20,9 +20,20 @@ namespace hero.script {
             
             Platform platform6 = new Platform("./hero/assets/brick.png", 100, 50, 4000, 600, 0, 0);
             Platform platform7 = new Platform("./hero/assets/brick.png", 100, 50, 3000, 600, 0, 0);
-            Platform platform8 = new Platform("./hero/assets/brick.png", 100, 50, 2000, 600, 0, 0);
             Platform platform9 = new Platform("./hero/assets/brick.png", 100, 50, 8150, 500, 0, 0);
             Platform platform10 = new Platform("./hero/assets/brick.png", 100, 50, 7900, 600, 0, 0);
+            Platform platform8 = new Platform("./hero/assets/brick.png", 100, 50, 2000, 600, 0, 0);
+            Platform platform11 = new Platform("./hero/assets/brick.png", 100, 50, 2150, 650, 0, 0);
+
+            Platform platform12 = new Platform("./hero/assets/brick.png", 100, 50, 2500, 600, 0, 0);
+            Platform platform13 = new Platform("./hero/assets/brick.png", 100, 50, 2650, 650, 0, 0);
+
+            Platform platform14 = new Platform("./hero/assets/brick.png", 100, 50, 3500, 600, 0, 0);
+            Platform platform15 = new Platform("./hero/assets/brick.png", 100, 50, 3650, 650, 0, 0);
+
+            Platform platform16 = new Platform("./hero/assets/brick.png", 100, 50, 4500, 600, 0, 0);
+            Platform platform17 = new Platform("./hero/assets/brick.png", 100, 50, 4650, 650, 0, 0);
+
 
 
         public InstantiatePlatform(int priority) : base(priority)
@@ -41,6 +52,14 @@ namespace hero.script {
             cast.AddActor("platform", platform8);
             cast.AddActor("platform", platform9);
             cast.AddActor("platform", platform10);
+            cast.AddActor("platform", platform11);
+
+            cast.AddActor("platform", platform12);
+            cast.AddActor("platform", platform13);
+            cast.AddActor("platform", platform14);
+            cast.AddActor("platform", platform15);
+            cast.AddActor("platform", platform16);
+            cast.AddActor("platform", platform17);
             script.RemoveAction("update", this);
         }
     }
